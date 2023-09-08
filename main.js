@@ -78,7 +78,7 @@ Per le immagini va bene utilizzare qualsiasi servizio di placeholder ad es. Unsp
 
 
 
-document.querySelector('.container').innerHTML =
+document.getElementById('container').innerHTML =
 
 `<div class="post">
 <div class="post__header">
