@@ -77,10 +77,8 @@ Per le immagini va bene utilizzare qualsiasi servizio di placeholder ad es. Unsp
 */
 
 
-
-document.getElementById('container').innerHTML =
-
-`<div class="post">
+function codiceHtml() {
+    `<div class="post">
 <div class="post__header">
     <div class="post-meta">                    
         <div class="post-meta__icon">
@@ -110,6 +108,19 @@ document.getElementById('container').innerHTML =
     </div> 
 </div>            
 </div>`
+
+}
+
+console.log(codiceHtml);
+
+
+
+document.getElementById('container').innerHTML = codiceHtml
+
+
+// proviamo a creare una card uguale e stampiamola con gli stessi valori
+
+
 
 
 
