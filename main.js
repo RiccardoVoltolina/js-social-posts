@@ -148,14 +148,9 @@ function cicloPosts(numeroPost , array) {
 
 cicloPosts(1 , card1)
 
-/* for (let i = 0; i < posts.length; i++) {
-    const post = posts[i];
-    console.log(post);
-    if (post.id === 1) {
-        card1.push(post)
-    }
-}
- */console.log(card1);
+
+
+ 
 
 
 
