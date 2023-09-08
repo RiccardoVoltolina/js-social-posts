@@ -102,13 +102,13 @@ function codiceHtml(id , immagineProfilo , nomeAutore , dataPost , testoPost , i
 <div class="post__footer">
     <div class="likes js-likes">
         <div class="likes__cta">
-            <a class="like-button  js-like-button" href="#" data-postid="1">
+            <a class="like-button  js-like-button" href="javascript:;" data-postid="1">
                 <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                 <span class="like-button__label">Mi Piace</span>
             </a>
         </div>
         <div class="likes__counter">
-            Piace a <b id="like-counter-1" class="js-likes-counter">${numeroLikes}</b> persone
+            Piace a <b id="like-counter-${id}" class="js-likes-counter">${numeroLikes}</b> persone
         </div>
     </div> 
 </div>            
@@ -117,16 +117,69 @@ function codiceHtml(id , immagineProfilo , nomeAutore , dataPost , testoPost , i
 return post_html;
 }
 
+// ciclo dell array
+for (let i = 0; i < posts.length; i++) {
+    let post = posts[i];
 
-document.getElementById('container').innerHTML += codiceHtml(11);
-document.getElementById('container').innerHTML += codiceHtml(11);
+    document.getElementById('container').innerHTML += codiceHtml(
+        post.id, 
+        post.author.image, //  "https://unsplash.it/300/300?image=29"
+        post.author.name, 
+        post.created, 
+        post.content, 
+        post.media, 
+        post.likes);   
+}
+
+let postsId = [];
+for (let post of posts) {
+    let likeBtn = document.querySelector("#post_"+post.id+" .like-button");
+    console.log(likeBtn);
+    likeBtn.addEventListener('click', function(){
 
 
-let card1 = []
-let card2 = []
-let card3 = []
-let card4 = []
+        if (! postsId.includes(post.id)) {
+            // bottone gia' cliccato, incremento
+            likeBtn.classList.add('like-button--liked')
+            console.log('ho cliccato');
+
+            let counterHtml = document.querySelector("#post_"+post.id+" .js-likes-counter");
+            let likesCounter = Number(counterHtml.innerText);
+            likesCounter++;
+            counterHtml.innerText = likesCounter;
+
+            postsId.push(post.id);
+        } else {
+            // decremento
+            likeBtn.classList.remove('like-button--liked')
+            console.log('decremento');
+
+            let counterHtml = document.querySelector("#post_"+post.id+" .js-likes-counter");
+            let likesCounter = Number(counterHtml.innerText);
+            likesCounter--;
+            counterHtml.innerText = likesCounter;
+
+            // rimuovere un elemento da array
+            postsId = postsId.filter(function(value) {
+                return value !== post.id
+            })
+        }
+console.log(postsId)
+        // seleziono anche il numerino e lo aggiorno
+    });
+
+}
+
+
+
+/* let infoId = []
+let info = []
+let 3 = []
+let 4 = []
+let 5 = []
+let 5 = []
 let card5 = []
+ */
 
 
 /**
@@ -134,19 +187,47 @@ let card5 = []
  * @param {Integer} numeroPost , array
  * @returns array.push
  */
-
-function cicloPosts(numeroPost , array) {
+/* 
+function cicloPosts(array) {
     for (let i = 0; i < posts.length; i++) {
         const post = posts[i];
-        if (post.id === numeroPost) {
-            array.push(post)
-             
-        }
+        array.push(post.id)
     }
     return array.push
-}
+} */
 
-cicloPosts(1 , card1)
+/* function cicloOggetti(nomeVariabile , oggetto) {
+    for (let i = 0; i < posts.length; i++) {
+        const post = posts[i];
+        nomeVariabile.push(post[oggetto])
+        
+    }
+    return nomeVariabile.push(post[oggetto])
+}
+ */
+
+
+
+
+/* for (let i = 0; i < posts.length; i++) {
+    const post = posts[i];
+    infoId.push(post.id)
+    
+}
+ */
+/* cicloPosts(2 , card2)
+cicloPosts(3 , card3)
+cicloPosts(4 , card4)
+cicloPosts(5 , card5) */
+
+
+
+
+
+
+
+
+
 
 
 
