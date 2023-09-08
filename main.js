@@ -118,13 +118,47 @@ return post_html;
 }
 
 
-document.getElementById('container').innerHTML += codiceHtml(11 , );
+document.getElementById('container').innerHTML += codiceHtml(11);
 document.getElementById('container').innerHTML += codiceHtml(11);
 
 
+let card1 = []
+let card2 = []
+let card3 = []
+let card4 = []
+let card5 = []
 
 
-// proviamo a creare una card uguale e stampiamola con gli stessi valori
+/**
+ * 
+ * @param {Integer} numeroPost , array
+ * @returns array.push
+ */
+
+function cicloPosts(numeroPost , array) {
+    for (let i = 0; i < posts.length; i++) {
+        const post = posts[i];
+        if (post.id === numeroPost) {
+            array.push(post)
+             
+        }
+    }
+    return array.push
+}
+
+cicloPosts(1 , card1)
+
+/* for (let i = 0; i < posts.length; i++) {
+    const post = posts[i];
+    console.log(post);
+    if (post.id === 1) {
+        card1.push(post)
+    }
+}
+ */console.log(card1);
+
+
+
 
 
 
