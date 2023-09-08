@@ -82,22 +82,22 @@ Per le immagini va bene utilizzare qualsiasi servizio di placeholder ad es. Unsp
  * @param {Integer} id 
  * @returns string generated post HTML
  */
-function codiceHtml(id) {
+function codiceHtml(id , immagineProfilo , nomeAutore , dataPost , testoPost , immaginePubblicata , numeroLikes ) {
     let post_html = `<div class="post" id="post_${id}">
 <div class="post__header">
     <div class="post-meta">                    
         <div class="post-meta__icon">
-            <img class="profile-pic" src="https://unsplash.it/300/300?image=15" alt="Phil Mangione">                    
+            <img class="profile-pic" src=${immagineProfilo} alt="Phil Mangione">                    
         </div>
         <div class="post-meta__data">
-            <div class="post-meta__author">Phil Mangione</div>
-            <div class="post-meta__time">4 mesi fa</div>
+            <div class="post-meta__author">${nomeAutore}</div>
+            <div class="post-meta__time">${dataPost}</div>
         </div>                    
     </div>
 </div>
-<div class="post__text">Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.</div>
+<div class="post__text">${testoPost}</div>
 <div class="post__image">
-    <img src="https://unsplash.it/600/300?image=171" alt="">
+    <img src="${immaginePubblicata}" alt="">
 </div>
 <div class="post__footer">
     <div class="likes js-likes">
@@ -108,7 +108,7 @@ function codiceHtml(id) {
             </a>
         </div>
         <div class="likes__counter">
-            Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+            Piace a <b id="like-counter-1" class="js-likes-counter">${numeroLikes}</b> persone
         </div>
     </div> 
 </div>            
@@ -117,10 +117,8 @@ function codiceHtml(id) {
 return post_html;
 }
 
-console.log(codiceHtml(11));
 
-
-document.getElementById('container').innerHTML += codiceHtml(11);
+document.getElementById('container').innerHTML += codiceHtml(11 , );
 document.getElementById('container').innerHTML += codiceHtml(11);
 
 
