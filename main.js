@@ -77,8 +77,13 @@ Per le immagini va bene utilizzare qualsiasi servizio di placeholder ad es. Unsp
 */
 
 
-function codiceHtml() {
-    `<div class="post">
+/**
+ * 
+ * @param {Integer} id 
+ * @returns string generated post HTML
+ */
+function codiceHtml(id) {
+    let post_html = `<div class="post" id="post_${id}">
 <div class="post__header">
     <div class="post-meta">                    
         <div class="post-meta__icon">
@@ -107,15 +112,18 @@ function codiceHtml() {
         </div>
     </div> 
 </div>            
-</div>`
+</div>`;
 
+return post_html;
 }
 
-console.log(codiceHtml);
+console.log(codiceHtml(11));
 
 
+document.getElementById('container').innerHTML += codiceHtml(11);
+document.getElementById('container').innerHTML += codiceHtml(11);
 
-document.getElementById('container').innerHTML = codiceHtml
+
 
 
 // proviamo a creare una card uguale e stampiamola con gli stessi valori
