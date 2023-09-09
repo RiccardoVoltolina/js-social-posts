@@ -180,12 +180,16 @@ containerDom.innerHTML += postProva
 
 
 
-
 for (let i = 0; i < posts.length; i++) {
     //scompongo la data
     const deformattedData = posts[i]['created'].split('-')
     const dataFormattata = `${deformattedData[2]}-${deformattedData[1]}-${deformattedData[0]}`
-    console.log(dataFormattata);
+    
+    // scompongo i nomi
+    const splitNomi = posts[i]['author']['name'].split(' ')
+    console.log(splitNomi);
+    const inizialiNomi = `${splitNomi[0][0]} ${splitNomi[1][0]}`
+    console.log(inizialiNomi);
     //creo il post 
 
     const postDom = ` 
@@ -193,7 +197,7 @@ for (let i = 0; i < posts.length; i++) {
                 <div class="post__header">
                     <div class="post-meta">                    
                         <div class="post-meta__icon">
-                            <img class="profile-pic" src="${posts[i]['author']['image']}" alt="Phil Mangione">                    
+                            <img class="profile-pic" src="${posts[i]['author']['image']}" alt="${inizialiNomi} ">                    
                         </div>
                         <div class="post-meta__data">
                             <div class="post-meta__author">${posts[i]['author']['name']}</div>
