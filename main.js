@@ -207,7 +207,7 @@ for (let i = 0; i < posts.length; i++) {
                             </a>
                         </div>
                         <div class="likes__counter">
-                            Piace a <b id="like-counter-1" class="js-likes-counter">${posts[i]['likes']}</b> persone
+                            Piace a <b id="like-counter-${[i]}" class="js-likes-counter">${posts[i]['likes']}</b> persone
                         </div>
                     </div> 
                 </div>            
@@ -233,7 +233,8 @@ for (let index = 0; index < listaBottoniLike.length; index++) {
         listaBottoniLike[index].classList.add('like-button--liked')
 
         //al click il numero dei like aumenta di 1
-        const likeCounter = document.getElementById('like-counter-1')
+        const likeCounter = document.getElementById(`like-counter-${[index]}`)
+        console.log(likeCounter);
         likeCounter.innerHTML = posts[index]['likes'] + 1;
     })
  
