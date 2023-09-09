@@ -105,6 +105,7 @@ const likedPosts = []
 
 
 
+
 /* const postDom = ` 
 <div id="${posts[0]['id']}" class="post">
     <div class="post__header">
@@ -181,7 +182,12 @@ containerDom.innerHTML += postProva
 
 
 for (let i = 0; i < posts.length; i++) {
+    //scompongo la data
+    const deformattedData = posts[i]['created'].split('-')
+    const dataFormattata = `${deformattedData[2]}-${deformattedData[1]}-${deformattedData[0]}`
+    console.log(dataFormattata);
     //creo il post 
+
     const postDom = ` 
             <div id="${posts[i]['id']}" class="post">
                 <div class="post__header">
@@ -191,7 +197,7 @@ for (let i = 0; i < posts.length; i++) {
                         </div>
                         <div class="post-meta__data">
                             <div class="post-meta__author">${posts[i]['author']['name']}</div>
-                            <div class="post-meta__time">${posts[i]['created']}</div>
+                            <div class="post-meta__time">${dataFormattata}</div>
                         </div>                    
                     </div>
                 </div>
@@ -216,6 +222,7 @@ for (let i = 0; i < posts.length; i++) {
             `
     //stampo il post in pagina, con += non resetto, ma concateno es. (.innerhtml = postDom + postDom ecc.)       
     containerDom.innerHTML += postDom 
+    
 }
 
 
