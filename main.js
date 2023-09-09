@@ -89,3 +89,5 @@ Ragioniamo come sempre a step. Prima scriviamo nei commenti la logica in italian
 Nota (bonus extra) - super opzionale:
 Poiché é la parte logica ad interessarci in questa fase del corso, nello starter kit c'é il marup che potete usare per volgere l'esercizio.
 Se finite la parte logica ed i vari bonus e vi avanza tempo per giocare un pó, pensate pure ad un layout differente e lavorateci su come bonus extra. */
+
+//test per in commit
