@@ -78,7 +78,12 @@ Milestone 3
 
 
 
-Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo. Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
+Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
+
+milestone 4
+Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
+
+
 BONUS
 Formattare le date in formato italiano (gg/mm/aaaa)
 Gestire l'assenza dell'immagine profilo con un elemento di fallback che contiene le iniziali dell'utente (es. Luca Formicola > LF).
@@ -175,22 +180,23 @@ containerDom.innerHTML += postProva
 
 
 for (let i = 0; i < posts.length; i++) {
+    //creo il post 
     const postDom = ` 
-            <div id="${posts[0]['id']}" class="post">
+            <div id="${posts[i]['id']}" class="post">
                 <div class="post__header">
                     <div class="post-meta">                    
                         <div class="post-meta__icon">
-                            <img class="profile-pic" src="${posts[0]['author']['image']}" alt="Phil Mangione">                    
+                            <img class="profile-pic" src="${posts[i]['author']['image']}" alt="Phil Mangione">                    
                         </div>
                         <div class="post-meta__data">
-                            <div class="post-meta__author">${posts[0]['author']['name']}</div>
-                            <div class="post-meta__time">${posts[0]['created']}</div>
+                            <div class="post-meta__author">${posts[i]['author']['name']}</div>
+                            <div class="post-meta__time">${posts[i]['created']}</div>
                         </div>                    
                     </div>
                 </div>
-                <div class="post__text">${posts[0]["content"]}</div>
+                <div class="post__text">${posts[i]["content"]}</div>
                 <div class="post__image">
-                    <img src="${posts[0]['media']}" alt="immagine postata">
+                    <img src="${posts[i]['media']}" alt="immagine postata">
                 </div>
                 <div class="post__footer">
                     <div class="likes js-likes">
@@ -201,13 +207,43 @@ for (let i = 0; i < posts.length; i++) {
                             </a>
                         </div>
                         <div class="likes__counter">
-                            Piace a <b id="like-counter-1" class="js-likes-counter">${posts[0]['likes']}</b> persone
+                            Piace a <b id="like-counter-1" class="js-likes-counter">${posts[i]['likes']}</b> persone
                         </div>
                     </div> 
                 </div>            
             </div>
             `
+    //stampo il post in pagina, con += non resetto, ma concateno es. (.innerhtml = postDom + postDom ecc.)       
     containerDom.innerHTML += postDom 
-
-
 }
+
+
+
+const listaBottoniLike = document.querySelectorAll('.like-button')
+
+
+
+for (let index = 0; index < listaBottoniLike.length; index++) {
+    //creo un evento di tipo click
+    
+    listaBottoniLike[index].addEventListener("click" , function (e) {
+
+        e.preventDefault()
+        //al click cambio colore al bottone like
+        listaBottoniLike[index].classList.add('like-button--liked')
+    })
+    
+}
+
+//ALTERNATIVA CON FOR EACH
+/* 
+listaBottoniLike.forEach((bottone) => {
+    console.log(bottone);
+    console.log(i);
+    console.log(listaBottoniLike[i]);
+    listaBottoniLike[i].addEventListener("click" , function (e) {
+        e.preventDefault()
+        console.log('cliccato');
+        listaBottoniLike[i].classList.add('like-button--liked')
+    })
+}) */
