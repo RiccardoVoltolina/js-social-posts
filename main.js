@@ -231,7 +231,12 @@ for (let index = 0; index < listaBottoniLike.length; index++) {
         e.preventDefault()
         //al click cambio colore al bottone like
         listaBottoniLike[index].classList.add('like-button--liked')
+
+        //al click il numero dei like aumenta di 1
+        const likeCounter = document.getElementById('like-counter-1')
+        likeCounter.innerHTML = posts[index]['likes'] + 1;
     })
+ 
     
 }
 
