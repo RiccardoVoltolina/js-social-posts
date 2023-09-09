@@ -101,6 +101,7 @@ Se finite la parte logica ed i vari bonus e vi avanza tempo per giocare un pó, 
 // scrivo l html in js
 
 const containerDom = document.querySelector('#container')
+const likedPosts = []
 
 
 
@@ -234,8 +235,9 @@ for (let index = 0; index < listaBottoniLike.length; index++) {
 
         //al click il numero dei like aumenta di 1
         const likeCounter = document.getElementById(`like-counter-${[index]}`)
-        console.log(likeCounter);
         likeCounter.innerHTML = posts[index]['likes'] + 1;
+        //aggiungo l id del post cliccato a likedPosts
+        likedPosts.push(`${posts[index]['id']}`)
     })
  
     
