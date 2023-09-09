@@ -99,8 +99,8 @@ const containerDom = document.querySelector('#container')
 
 
 
-const postDom = ` 
-<div class="post">
+/* const postDom = ` 
+<div id="${posts[0]['id']}" class="post">
     <div class="post__header">
         <div class="post-meta">                    
             <div class="post-meta__icon">
@@ -131,8 +131,83 @@ const postDom = `
     </div>            
 </div>
 `
+const postProva =
+` 
+<div id="${posts[1]['id']}" class="post">
+    <div class="post__header">
+        <div class="post-meta">                    
+            <div class="post-meta__icon">
+                <img class="profile-pic" src="${posts[1]['author']['image']}" alt="Phil Mangione">                    
+            </div>
+            <div class="post-meta__data">
+                <div class="post-meta__author">${posts[1]['author']['name']}</div>
+                <div class="post-meta__time">${posts[1]['created']}</div>
+            </div>                    
+        </div>
+    </div>
+    <div class="post__text">${posts[1]["content"]}</div>
+    <div class="post__image">
+        <img src="${posts[1]['media']}" alt="immagine postata">
+    </div>
+    <div class="post__footer">
+        <div class="likes js-likes">
+            <div class="likes__cta">
+                <a class="like-button  js-like-button" href="#" data-postid="1">
+                    <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                    <span class="like-button__label">Mi Piace</span>
+                </a>
+            </div>
+            <div class="likes__counter">
+                Piace a <b id="like-counter-1" class="js-likes-counter">${posts[1]['likes']}</b> persone
+            </div>
+        </div> 
+    </div>            
+</div>
+`
 
-
+ */
 // inserisco il post nel container
-containerDom.innerHTML = postDom 
-console.log(posts[0]["media"]);
+/* containerDom.innerHTML = postDom
+containerDom.innerHTML += postProva
+ */
+
+
+
+
+for (let i = 0; i < posts.length; i++) {
+    const postDom = ` 
+            <div id="${posts[0]['id']}" class="post">
+                <div class="post__header">
+                    <div class="post-meta">                    
+                        <div class="post-meta__icon">
+                            <img class="profile-pic" src="${posts[0]['author']['image']}" alt="Phil Mangione">                    
+                        </div>
+                        <div class="post-meta__data">
+                            <div class="post-meta__author">${posts[0]['author']['name']}</div>
+                            <div class="post-meta__time">${posts[0]['created']}</div>
+                        </div>                    
+                    </div>
+                </div>
+                <div class="post__text">${posts[0]["content"]}</div>
+                <div class="post__image">
+                    <img src="${posts[0]['media']}" alt="immagine postata">
+                </div>
+                <div class="post__footer">
+                    <div class="likes js-likes">
+                        <div class="likes__cta">
+                            <a class="like-button  js-like-button" href="#" data-postid="1">
+                                <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                                <span class="like-button__label">Mi Piace</span>
+                            </a>
+                        </div>
+                        <div class="likes__counter">
+                            Piace a <b id="like-counter-1" class="js-likes-counter">${posts[0]['likes']}</b> persone
+                        </div>
+                    </div> 
+                </div>            
+            </div>
+            `
+    containerDom.innerHTML += postDom 
+
+
+}
