@@ -178,7 +178,7 @@ const postProva =
 containerDom.innerHTML += postProva
  */
 
-
+let cliccato = false
 
 for (let i = 0; i < posts.length; i++) {
     //scompongo la data
@@ -187,9 +187,7 @@ for (let i = 0; i < posts.length; i++) {
     
     // scompongo i nomi
     const splitNomi = posts[i]['author']['name'].split(' ')
-    console.log(splitNomi);
     const inizialiNomi = `${splitNomi[0][0]} ${splitNomi[1][0]}`
-    console.log(inizialiNomi);
     //creo il post 
 
     const postDom = ` 
@@ -234,21 +232,33 @@ for (let i = 0; i < posts.length; i++) {
 const listaBottoniLike = document.querySelectorAll('.like-button')
 
 
-
 for (let index = 0; index < listaBottoniLike.length; index++) {
     //creo un evento di tipo click
-    
+
     listaBottoniLike[index].addEventListener("click" , function (e) {
-
+debugger
         e.preventDefault()
-        //al click cambio colore al bottone like
-        listaBottoniLike[index].classList.add('like-button--liked')
+        if (cliccato === false) {
+            //al click cambio colore al bottone like
+            listaBottoniLike[index].classList.add('like-button--liked')
 
-        //al click il numero dei like aumenta di 1
-        const likeCounter = document.getElementById(`like-counter-${[index]}`)
-        likeCounter.innerHTML = posts[index]['likes'] + 1;
-        //aggiungo l id del post cliccato a likedPosts
-        likedPosts.push(`${posts[index]['id']}`)
+            //al click il numero dei like aumenta di 1
+            let likeCounter = document.getElementById(`like-counter-${[index]}`)
+            likeCounter.innerHTML = posts[index]['likes'] + 1;
+            //aggiungo l id del post cliccato a likedPosts
+            likedPosts.push(`${posts[index]['id']}`)
+            cliccato = true
+
+        }
+        else {
+            //rimuovo colore e like
+            listaBottoniLike[index].classList.remove('like-button--liked')
+            cliccato = false
+            let likeCounter = document.getElementById(`like-counter-${[index]}`)
+            likeCounter.innerHTML = posts[index]['likes'];
+            
+
+        }
     })
  
     
