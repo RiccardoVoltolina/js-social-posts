@@ -71,7 +71,6 @@ Non è necessario creare date casuali
 Per le immagini va bene utilizzare qualsiasi servizio di placeholder ad es. Unsplash (https://unsplash.it/300/300?image=<id>)
 
 
-
 Milestone 2
 Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
 Milestone 3
@@ -90,4 +89,50 @@ Nota (bonus extra) - super opzionale:
 Poiché é la parte logica ad interessarci in questa fase del corso, nello starter kit c'é il marup che potete usare per volgere l'esercizio.
 Se finite la parte logica ed i vari bonus e vi avanza tempo per giocare un pó, pensate pure ad un layout differente e lavorateci su come bonus extra. */
 
-//test per in commit
+
+
+
+
+// scrivo l html in js
+
+const containerDom = document.querySelector('#container')
+
+
+
+const postDom = ` 
+<div class="post">
+    <div class="post__header">
+        <div class="post-meta">                    
+            <div class="post-meta__icon">
+                <img class="profile-pic" src="${posts[0]['author']['image']}" alt="Phil Mangione">                    
+            </div>
+            <div class="post-meta__data">
+                <div class="post-meta__author">${posts[0]['author']['name']}</div>
+                <div class="post-meta__time">${posts[0]['created']}</div>
+            </div>                    
+        </div>
+    </div>
+    <div class="post__text">${posts[0]["content"]}</div>
+    <div class="post__image">
+        <img src="${posts[0]['media']}" alt="immagine postata">
+    </div>
+    <div class="post__footer">
+        <div class="likes js-likes">
+            <div class="likes__cta">
+                <a class="like-button  js-like-button" href="#" data-postid="1">
+                    <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                    <span class="like-button__label">Mi Piace</span>
+                </a>
+            </div>
+            <div class="likes__counter">
+                Piace a <b id="like-counter-1" class="js-likes-counter">${posts[0]['likes']}</b> persone
+            </div>
+        </div> 
+    </div>            
+</div>
+`
+
+
+// inserisco il post nel container
+containerDom.innerHTML = postDom 
+console.log(posts[0]["media"]);
