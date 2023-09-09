@@ -236,7 +236,6 @@ for (let index = 0; index < listaBottoniLike.length; index++) {
     //creo un evento di tipo click
 
     listaBottoniLike[index].addEventListener("click" , function (e) {
-debugger
         e.preventDefault()
         if (cliccato === false) {
             //al click cambio colore al bottone like
