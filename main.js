@@ -184,8 +184,7 @@ let card5 = []
 
 /**
  * 
- * @param {Integer} numeroPost , array
- * @returns array.push
+ *
  */
 /* 
 function cicloPosts(array) {
