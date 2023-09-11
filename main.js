@@ -120,6 +120,11 @@ return post_html;
 // ciclo dell array
 for (let i = 0; i < posts.length; i++) {
     let post = posts[i];
+    if (post.author.image === null) {
+        post.author.image = 'https://unsplash.it/300/300?image=28'
+    } else {
+        post.author.image = post.author.image
+    }
 
     document.getElementById('container').innerHTML += codiceHtml(
         post.id, 
